@@ -9,7 +9,7 @@ A very basic frontend has already been created for visualizing the results. You 
 
 ### Setting up the project
 
-- Make sure `python3.7` and `pip` are installed. Install `pipenv` by running `pip install pipenv`.
+- Make sure `python3.8` and `pip` are installed. Install `pipenv` by running `pip install pipenv`.
 - Install python dependencies using the command `pipenv install` Please use only pipenv for managing dependencies (Follow this [link](https://realpython.com/pipenv-guide/) if you are new to pipenv).
 - To activate this project's virtualenv, run `pipenv shell`.
 - Run `python manage.py migrate` to apply migrations.
