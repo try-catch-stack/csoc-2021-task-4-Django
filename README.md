@@ -1,8 +1,8 @@
-# Library - CSoC Dev Task 2
+# Library - CSoC Dev Task 4
 
 ## Introduction
 
-Welcome to the Week 2 of CSOC Dev. In this assignment, you will be working on the Django backend of a library web application. A boilerplate has already been created for you and all that remains is to fill in the code wherever we've asked you to, or wherever you feel required.
+Welcome to the Week 4 of CSOC Dev. In this assignment, you will be working on the Django backend of a library web application. A boilerplate has already been created for you and all that remains is to fill in the code wherever we've asked you to, or wherever you feel required.
 
 A very basic frontend has already been created for visualizing the results. You need not mess with it until the later stages of the assignment.
 
@@ -53,7 +53,7 @@ In this stage, you will need to implement a rating system all by yourself.
 In the authentication app, fill in the views for login, logout and user registration. You will also need to create basic frontend templates for these views. Refer to the existing templates if you have any issue.
 
 ## Deadline
-You'll have a week to complete this task. Hence, the deadline of this task is 7th May, 2020.
+You'll have a week to complete this task. Hence, the deadline of this task is 22nd July, 2021.
 
 ## Submission
 * Follow the instructions to setup and run this project.
