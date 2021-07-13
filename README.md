@@ -38,7 +38,7 @@ Complete the view for returning an issued book. You need to write this view all 
 * Your view will accept Book Copy ID as an argument and mark the appropriate Book Copy as returned and return an appropriate response.
 * You additionally need to write the JavaScript code to make a POST request to your view and display an appropriate message to the user after the response arrives.
 
-#### Stage 3 (60 Points)
+#### Stage 3 (100 Points)
 In this stage, you will need to implement a rating system all by yourself.
 * You may need to fiddle around with the models, create some new views and make changes to the existing templates.
 * Your system should allow the user to enter any integer between 0 to 10 (both inclusive) and the final rating would be the average of all the user ratings given to the book and should be a real number.
