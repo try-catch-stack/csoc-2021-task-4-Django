@@ -1,4 +1,4 @@
-# Library - CSoC Dev Task 4
+# Library - CSoC Dev Task 4 (Django)
 
 ## Introduction
 
