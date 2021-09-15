@@ -39,9 +39,6 @@ def bookListView(request):
         title = request.GET['title']
         author = request.GET['author']
         genre = request.GET['genre']
-        # print(title, author, genre)
-        if(title):
-            print(f"Title={title}")
         filteredBooks = Book.objects.filter(
             title__contains=title, author__contains=author, genre__contains=genre)
 
