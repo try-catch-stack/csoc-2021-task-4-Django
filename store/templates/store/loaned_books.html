@@ -10,34 +10,59 @@
 
 <h3>Loaned Books list</h3>
 
+{%for message in messages%}
+<div class="alert {{message.tags}} alert-dismissible fade show" role="alert">
+    {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{%endfor%}
+
 <table class="table">
     <thead>
         <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Author</th>
-        <th scope="col">Genre</th>
-        <th scope="col">Borrow Date</th>
-        <th scope="col">Return Buttons</th>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Borrow Date</th>
+            <th scope="col">Return Buttons</th>
         </tr>
     </thead>
     <tbody>
         {% for copy in books %}
         <tr>
-        <th scope="row">{{ forloop.counter }}</th>
-        <td><a href="/book/{{copy.book.id}}/">{{ copy.book.title }}</a></td>
-        <td>{{ copy.book.author }}</td>
-        <td>{{ copy.book.genre }}</td>
-        <td>{{ copy.borrow_date }}</td>
-        <td><button class="btn btn-primary" onclick="returnBook({{ copy.id }})">Return {{ copy.book.title }}</button></td>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td><a href="/book/{{copy.book.id}}/">{{ copy.book.title }}</a></td>
+            <td>{{ copy.book.author }}</td>
+            <td>{{ copy.book.genre }}</td>
+
+            <td>{{ copy.borrow_date }}</td>
+            <td><button class="btn btn-primary" onclick="returnBook({{ copy.id }})">Return {{ copy.book.title}}</button>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 <script>
-// Fill in this function by yourself. It should make a post call to the returnBookView and display an appropriate message
-function returnBook(bid){
-    ;
-}
+    // Fill in this function by yourself. It should make a post call to the returnBookView and display an appropriate message
+    function returnBook(bid) {
+        $.ajax({
+            url: "{% url 'return-book' %}",
+            method: "POST",
+            data: {
+                book_id: bid
+            }, success: function (data, status) {
+                if (data['message'] == 'Success') {
+                    window.location.reload();
+                } else {
+                    alert('Error : Unable to return book.')
+                }
+            }, error: function (data, status) {
+                alert('Error : Unable to return book.')
+            }
+        })
+    }
 </script>
 {% endblock %}

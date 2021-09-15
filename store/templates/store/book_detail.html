@@ -8,38 +8,41 @@
 <h2>Title: {{ book.title }}</h2>
 
 <dl>
-    <dt>Genre:</dt>
-    <dd>{{ book.genre }}</dd>
-    <dt>Author:</dt>
-    <dd>{{ book.author }}</dd>
-    <dt>Description:</dt>
-    <dd>{{ book.description }}</dd>
-    <dt>Rating:</dt>
-    <dd>{{ book.rating }}</dd>
-    <dt>MRP:</dt>
-    <dd>Rs. {{ book.mrp }}</dd>
-    <dt>Available Copies:</dt>
-    <dd>{{ num_available }}</dd>
+	<dt>Genre:</dt>
+	<dd>{{ book.genre }}</dd>
+	<dt>Author:</dt>
+	<dd>{{ book.author }}</dd>
+	<dt>Description:</dt>
+	<dd>{{ book.description }}</dd>
+	<dt>Rating:</dt>
+	<dd>{{ book.rating }}</dd>
+	<dt>MRP:</dt>
+	<dd>Rs. {{ book.mrp }}</dd>
+	<dt>Available Copies:</dt>
+	<dd id="num_available">{{ num_available }}</dd>
+
 </dl>
+{% if num_available %}
 <button class="btn btn-primary" id="loan-button">Loan {{ book.title }}</button>
+{% endif %}
 <script>
-$("#loan-button").click(function(){
-    $.ajax({
-		url: "{% url 'loan-book' %}",
-		method: "POST",
-		data: {
-			bid: {{ book.id }}
+	$("#loan-button").click(function () {
+
+		$.ajax({
+			url: "{% url 'loan-book' %}",
+			method: "POST",
+			data: {
+				bid: {{ book.id }}                                    
 		},
-		success: function(data, status, xhr){
-			if(data['message'] == "success"){
-                alert("Book successfully issued");
-                window.location.replace("/books/loaned");
+		success: function (data, status, xhr) {
+			if (data['message'] == "Success") {
+				window.location.replace("/books/loaned");
 			}
-			else{
+			else {
 				alert("Unable to issue this book");
 			}
 		},
-		error: function(xhr, status, err){
+		error: function (xhr, status, err) {
 			alert("Some error occured");
 		}
 
